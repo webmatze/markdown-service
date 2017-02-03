@@ -1,0 +1,24 @@
+{
+  "name": "markdown-service",
+  "version": "1.0.0",
+  "description": "microservice transforms markdown into html",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "lint": "standard --parser babel-eslint",
+    "start": "micro"
+  },
+  "keywords": [
+    "micro",
+    "service",
+    "microservice",
+    "markdown",
+    "html"
+  ],
+  "author": "Mathias Karstädt <mathias.karstaedt@gmail.com> (http://mathiaskarstaedt.de/)",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "0.3.6",
+    "micro": "6.2.1"
+  }
+}
