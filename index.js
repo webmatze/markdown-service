@@ -1,7 +1,8 @@
 const { json, send } = require('micro')
+const cors = require('micro-cors')()
 const marked = require('marked')
 
-module.exports = async function (request, response) {
+module.exports = cors(async function (request, response) {
   let data = null
 
   try {
@@ -15,4 +16,4 @@ module.exports = async function (request, response) {
   }
 
   send(response, 200, marked(data.markdown, { sanitize: true }) )
-}
+})
