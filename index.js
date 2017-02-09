@@ -1,8 +1,19 @@
 const { json, send } = require('micro')
 const cors = require('micro-cors')()
+const compress = require('micro-compress')
 const marked = require('marked')
 
-module.exports = cors(async function (request, response) {
+const middleware = [
+  cors, compress
+]
+
+const applyMiddleware = (service, middleware) => {
+  return middleware.reduce((fn, nextMiddleware) => {
+    return nextMiddleware(fn)
+  }, service)
+}
+
+const markdownService = async function (request, response) {
   try {
     const { markdown } = await json(request)
 
@@ -14,4 +25,6 @@ module.exports = cors(async function (request, response) {
   } catch (e) {
     return send(response, 400, { error: 'no post data provided' })
   }
-})
+}
+
+module.exports = applyMiddleware(markdownService, middleware)
