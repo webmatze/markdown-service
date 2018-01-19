@@ -32,10 +32,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "marked": "0.3.6",
+    "marked": "0.3.12",
     "micro": "^7.0.0",
     "micro-compress": "1.0.0",
-    "micro-cors": "0.0.1"
+    "micro-cors": "0.1.0"
   },
   "devDependencies": {
     "@ava/babel-preset-stage-4": "1.0.0",
